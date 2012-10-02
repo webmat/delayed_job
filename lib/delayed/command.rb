@@ -67,7 +67,7 @@ module Delayed
 
     def daemonize
       dir = @options[:pid_dir]
-      Dir.mkdir(dir) unless File.exists?(dir)
+      Dir.mkdir_p(dir)
 
       if @worker_count > 1 && @options[:identifier]
         raise ArgumentError, 'Cannot specify both --number-of-workers and --identifier'
